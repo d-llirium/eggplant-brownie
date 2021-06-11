@@ -1,26 +1,23 @@
 import UIKit
-//Este é o código principal do nosso projeto
-//MARK: - atributos
-let nome = "churros"
-let felicidade = 5
-let calorias = 79.5
-let vegetal = false
-//MARK: - métodos
-//método sem parâmetro
-func alimentoConsumido(){
-    print("1.O alimento consumido foi: \(nome)")
+
+let caloria1 = 50.5
+let caloria2 = 100
+let caloria3 = 300
+let caloria4 = 500
+
+//MARK: - Array = lista
+//declação
+let totalCalorias = [50.5, 100, 300, 500]
+print(totalCalorias)
+//primeira forma
+for i in 0...3{
+    print(totalCalorias[i])
 }
-//instanciando/chamando
-alimentoConsumido()
-//método com parâmetro
-func alimentoConsumido(nome: String, caloria: Double){
-    print("2.O alimento consumido foi: \(nome), com calorias: \(caloria)")
+//segunda forma
+for i in 0...totalCalorias.count-1{
+    print(totalCalorias[i])
 }
-//instanciando/chamando
-alimentoConsumido(nome: nome, caloria: calorias)
-//para ocultar o nome dos parâmetros nas hora de invocar
-func alimentoConsumido(_ nome: String, _ caloria: Double){
-    print("3.O alimento consumido foi: \(nome), com calorias: \(caloria)")
+//terceira forma > mais utilizada
+for caloria in totalCalorias{
+    print(caloria)
 }
-//instanciando/chamando
-alimentoConsumido(nome,calorias)
