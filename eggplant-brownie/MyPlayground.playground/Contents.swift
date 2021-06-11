@@ -8,20 +8,16 @@ let felicidade2: String = "4"
 //--------------------------
 //MARK: - classe (estrutura para agrupar as características)
 class Refeicao{
-    var nome: String = "Macarrão"
-    let felicidade: String = "5"
+    //opcionais = pode ou não ter valor
+    var nome: String?
+    var felicidade: String?
 }
-//referncia/instancia/chama a classe EXPLICITO
-let refeicao: Refeicao = Refeicao()
-//refeicao não pode ser de outro tipo pq é constante, mas o atributo nome é uma variável, portanto pode ser modificado
-refeicao.nome = "Feijão"
-//referncia/instancia/chama a classe Implicita
-let reificaoImplicita = Refeicao()
+//referncia/instancia/chama a classe
+let refeicao = Refeicao()
+refeicao.nome = "Macarrão"
+//como é opcional, ele vai sempre imprimir com o Opcional("....")
 print(refeicao.nome)
 
-class Refeicao2{
-    var nome: String = "Churros"
-    var felicidade: String = "4"
-}
-var refeicao2 = Refeicao2()
-print(refeicao2.nome)
+//MARK: - forced unwrap CUIDADO
+//se não tiver uma variável associada e dar unwrap, o app vai dar CRASH
+print(refeicao.nome!)
