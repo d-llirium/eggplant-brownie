@@ -1,23 +1,13 @@
 import UIKit
 
-let caloria1 = 50.5
-let caloria2 = 100
-let caloria3 = 300
-let caloria4 = 500
+let totalDeCalorias: [Double] = [50.5,100]
 
-//MARK: - Array = lista
-//declação
-let totalCalorias = [50.5, 100, 300, 500]
-print(totalCalorias)
-//primeira forma
-for i in 0...3{
-    print(totalCalorias[i])
+func somaTodasCalorias(totalDeCalorias: [Double]) -> Double{
+    var total = 0.0
+    for  caloria in totalDeCalorias{
+        total += caloria
+    }
+    return total
 }
-//segunda forma
-for i in 0...totalCalorias.count-1{
-    print(totalCalorias[i])
-}
-//terceira forma > mais utilizada
-for caloria in totalCalorias{
-    print(caloria)
-}
+let total = somaTodasCalorias(totalDeCalorias: [50.5, 100, 300])
+print(total)
