@@ -10,8 +10,8 @@ import UIKit
 
 class Item: NSObject {
     //MARK: - atributos
-    var nome: String
-    var calorias:Double
+    let nome: String
+    let calorias:Double
     //MARK: - construtor
     init(nome: String, calorias:Double){
         self.nome = nome

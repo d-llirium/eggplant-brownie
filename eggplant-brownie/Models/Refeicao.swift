@@ -10,13 +10,13 @@ import UIKit
 
 class Refeicao: NSObject {
     //MARK: - atributos
-     var nome: String
-     var felicidade: String
+     let nome: String
+     let felicidade: Int
      //inicializada vazia
-     var itens: Array<Item> = []
+     let itens: Array<Item> = []
      //MARK: - construtor
      //os tipos precisam estar explícitos na hora de colocar os parametros
-     init(nome:String,felicidade:String){
+     init(nome:String,felicidade:Int){
          self.nome = nome
          self.felicidade = felicidade
      }
