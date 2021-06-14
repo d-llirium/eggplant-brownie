@@ -13,6 +13,8 @@
 		472A0D5C2670141700C79638 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 472A0D5A2670141700C79638 /* Main.storyboard */; };
 		472A0D5E2670141A00C79638 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 472A0D5D2670141A00C79638 /* Assets.xcassets */; };
 		472A0D612670141A00C79638 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 472A0D5F2670141A00C79638 /* LaunchScreen.storyboard */; };
+		47E3C8AD2677E37F00D75769 /* Refeicao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E3C8AC2677E37F00D75769 /* Refeicao.swift */; };
+		47E3C8AF2677E3F900D75769 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E3C8AE2677E3F900D75769 /* Item.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +27,8 @@
 		472A0D602670141A00C79638 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		472A0D622670141A00C79638 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4747CBA126728AA10026102E /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		47E3C8AC2677E37F00D75769 /* Refeicao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Refeicao.swift; sourceTree = "<group>"; };
+		47E3C8AE2677E3F900D75769 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +64,8 @@
 				472A0D542670141700C79638 /* AppDelegate.swift */,
 				472A0D562670141700C79638 /* SceneDelegate.swift */,
 				472A0D582670141700C79638 /* ViewController.swift */,
+				47E3C8AC2677E37F00D75769 /* Refeicao.swift */,
+				47E3C8AE2677E3F900D75769 /* Item.swift */,
 				472A0D5A2670141700C79638 /* Main.storyboard */,
 				472A0D5D2670141A00C79638 /* Assets.xcassets */,
 				4747CBA126728AA10026102E /* MyPlayground.playground */,
@@ -140,9 +146,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				47E3C8AF2677E3F900D75769 /* Item.swift in Sources */,
 				472A0D592670141700C79638 /* ViewController.swift in Sources */,
 				472A0D552670141700C79638 /* AppDelegate.swift in Sources */,
 				472A0D572670141700C79638 /* SceneDelegate.swift in Sources */,
+				47E3C8AD2677E37F00D75769 /* Refeicao.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
