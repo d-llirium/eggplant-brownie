@@ -15,6 +15,7 @@
 		472A0D612670141A00C79638 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 472A0D5F2670141A00C79638 /* LaunchScreen.storyboard */; };
 		47E3C8AD2677E37F00D75769 /* Refeicao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E3C8AC2677E37F00D75769 /* Refeicao.swift */; };
 		47E3C8AF2677E3F900D75769 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E3C8AE2677E3F900D75769 /* Item.swift */; };
+		47F3C9FC267A87A400E09CF4 /* RefeicoesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F3C9FB267A87A400E09CF4 /* RefeicoesTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		4747CBA126728AA10026102E /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		47E3C8AC2677E37F00D75769 /* Refeicao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Refeicao.swift; sourceTree = "<group>"; };
 		47E3C8AE2677E3F900D75769 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		47F3C9FB267A87A400E09CF4 /* RefeicoesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefeicoesTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				472A0D582670141700C79638 /* ViewController.swift */,
+				47F3C9FB267A87A400E09CF4 /* RefeicoesTableViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -173,6 +176,7 @@
 				47E3C8AF2677E3F900D75769 /* Item.swift in Sources */,
 				472A0D592670141700C79638 /* ViewController.swift in Sources */,
 				472A0D552670141700C79638 /* AppDelegate.swift in Sources */,
+				47F3C9FC267A87A400E09CF4 /* RefeicoesTableViewController.swift in Sources */,
 				472A0D572670141700C79638 /* SceneDelegate.swift in Sources */,
 				47E3C8AD2677E37F00D75769 /* Refeicao.swift in Sources */,
 			);
