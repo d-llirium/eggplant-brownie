@@ -8,10 +8,12 @@
 
 import UIKit
 //vai herdar de UITableViewCOntroller com o protocolo ViewControllerDelegate - q será utilizado para interfacear as duas views
-class RefeicoesTableViewController: UITableViewController, ViewControllerDelegate{
+class RefeicoesTableViewController: UITableViewController, AdicionaRefeicaoDelegate{
+    //MARK: - ATRIBUTOS
     var refeicoes = [Refeicao(nome:"Macarrão", felicidade: 4),
                      Refeicao(nome:"Pizza", felicidade: 4),
                      Refeicao(nome:"Comida Japonesa", felicidade: 5)]
+    //MARK: - MÉTODOS
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return refeicoes.count
     }
