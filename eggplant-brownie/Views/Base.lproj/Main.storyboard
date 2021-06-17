@@ -61,7 +61,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="137.68115942028987" y="112.5"/>
+            <point key="canvasLocation" x="212" y="622"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="SMl-xf-ChG">
@@ -78,6 +78,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Khs-Oj-w7Z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1903" y="113"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="3mX-R4-PdA">
+            <objects>
+                <viewController id="BXo-VO-iyK" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hSX-Vt-aIk">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="y0a-vd-uab"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Qxe-uT-fsE"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fzs-7U-NTl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="138" y="-586"/>
         </scene>
         <!--Refeicoes Table View Controller-->
         <scene sceneID="6eR-i5-j8U">
@@ -102,13 +118,20 @@
                             <outlet property="delegate" destination="2A2-sZ-v0E" id="FIJ-nD-LN4"/>
                         </connections>
                     </tableView>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" id="Rfk-pa-CzR">
+                        <barButtonItem key="leftBarButtonItem" title="Item" id="DGE-2v-xbB">
+                            <connections>
+                                <segue destination="BXo-VO-iyK" kind="show" id="Xh6-hc-Jp9"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Add" id="dze-h4-E3O">
                             <connections>
-                                <segue destination="BYZ-38-t0r" kind="show" id="RgQ-Oq-hQL"/>
+                                <segue destination="BYZ-38-t0r" kind="show" identifier="adicionar" id="RgQ-Oq-hQL"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SJH-Oq-NhH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

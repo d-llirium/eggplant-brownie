@@ -7,10 +7,15 @@
 //
 
 import UIKit
+//MARK: - protocolos
+//criando uma interface/protocolo com todas as definições de métodos que preciso usar
+protocol ViewControllerDelegate {
+    func add(_ refeicao: Refeicao)
+}
 //controla a interface do usuário
 class ViewController: UIViewController {
 //MARK: - declarar variávies
-    var tableViewController: RefeicoesTableViewController?
+    var delegate: ViewControllerDelegate?
     //@IBOutlet paa associar a variável a um campo
     //só vou saber o valor dessa variáveis no TEMPO de execução, por isso eu coloco um ! para forçar um valor, CUIDADO com o FORCE UNWRAPPING ! , pq pode dar crash
     //troca por optionals ? os ! forced unwrapp
@@ -27,7 +32,7 @@ class ViewController: UIViewController {
         let refeicao = Refeicao(nome: nomeDaRefeicao, felicidade: felicidade)
         print("comi \(refeicao.nome) e fiquei com felicidade: \(refeicao.felicidade)")
         //adiciona a refeião inserida na Lista
-        tableViewController?.add(refeicao)
+        delegate?.add(refeicao)
         //ele fecha a tela
         navigationController?.popViewController(animated: true)
     }
