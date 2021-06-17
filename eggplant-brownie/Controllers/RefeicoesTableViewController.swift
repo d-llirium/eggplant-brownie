@@ -9,7 +9,7 @@
 import UIKit
 //vai herdar de UITableViewCOntroller
 class RefeicoesTableViewController: UITableViewController{
-    let refeicoes = [Refeicao(nome:"Macarrão", felicidade: 4),
+    var refeicoes = [Refeicao(nome:"Macarrão", felicidade: 4),
                      Refeicao(nome:"Pizza", felicidade: 4),
                      Refeicao(nome:"Comida Japonesa", felicidade: 5)]
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -24,5 +24,21 @@ class RefeicoesTableViewController: UITableViewController{
         celula.textLabel?.text = refeicao.nome
         
         return celula
+    }
+    //add info na table view
+    func add(_ refeicao: Refeicao){
+        //adiciona o item a lista array
+        refeicoes.append(refeicao)
+        //atualiza a table view
+        tableView.reloadData()
+    }
+    //MARK:- passando info entre CONTROLLERS
+    //recebe a sequencia da telas e manda para q um destino
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //se o destino for convertido para ViewController
+        if let viewController = segue.destination as? ViewController {
+            //então o destino que é um tipo genérico q era UITableView Controller agora é a instancia tableViewController
+            viewController.tableViewController = self
+        }
     }
 }
