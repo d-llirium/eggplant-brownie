@@ -12,8 +12,10 @@ import UIKit
 protocol AdicionaRefeicaoDelegate {
     func add(_ refeicao: Refeicao)
 }
-//controla a interface do usuário, implementamos o protocolo UITableViewDataSource do UITableViewController <exige 2 métodos>
-class ViewController: UIViewController, UITableViewDataSource {
+// classe ViewController controla a interface do usuário
+    // implementa o protocolo  UITableView > UITableViewDataSource - métodos q armazena os dados da TableView
+    // implementa o protocolo UITableView > UITableViewDelegate - métodos q correspondem as ações do usuário na tabela
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     //MARK: - ATRIBUTOS
     var delegate: AdicionaRefeicaoDelegate?
     var itens: [String] = ["Molho de tomate","Queijo","Molho apimentado","Manjericão"]
@@ -34,13 +36,21 @@ class ViewController: UIViewController, UITableViewDataSource {
         celula.textLabel?.text = item
         return celula
     }
+    //MARK: - UITableViewDelegate
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let celula = tableView.cellForRow(at: indexPath) else { return }
+        //para poder dar check e uncheck nos itens
+        if celula.accessoryType == .none{
+            celula.accessoryType = .checkmark
+        }else{
+            celula.accessoryType = .none
+        }
+    }
     //MARK: - @IBAction
     //mesmo nome do botão da interface
     @IBAction func adicionar(_ sender: Any) {
         //tratando os Outlets opcionais com guard let e convertendo a string felicidade em Int
-        guard let nomeDaRefeicao = nomeTextField?.text, let felicidadeDaRefeicao = felicidadeTextField?.text, let felicidade = Int(felicidadeDaRefeicao) else{
-            return
-        }
+        guard let nomeDaRefeicao = nomeTextField?.text, let felicidadeDaRefeicao = felicidadeTextField?.text, let felicidade = Int(felicidadeDaRefeicao) else{ return }
         let refeicao = Refeicao(nome: nomeDaRefeicao, felicidade: felicidade)
         print("comi \(refeicao.nome) e fiquei com felicidade: \(refeicao.felicidade)")
         //adiciona a refeião inserida na Lista
