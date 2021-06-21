@@ -13,6 +13,8 @@
 		472A0D5C2670141700C79638 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 472A0D5A2670141700C79638 /* Main.storyboard */; };
 		472A0D5E2670141A00C79638 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 472A0D5D2670141A00C79638 /* Assets.xcassets */; };
 		472A0D612670141A00C79638 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 472A0D5F2670141A00C79638 /* LaunchScreen.storyboard */; };
+		477B624626810BD50009AB84 /* AdicionarItensViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477B624426810BD50009AB84 /* AdicionarItensViewController.swift */; };
+		477B624726810BD50009AB84 /* AdicionarItensViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 477B624526810BD50009AB84 /* AdicionarItensViewController.xib */; };
 		47E3C8AD2677E37F00D75769 /* Refeicao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E3C8AC2677E37F00D75769 /* Refeicao.swift */; };
 		47E3C8AF2677E3F900D75769 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E3C8AE2677E3F900D75769 /* Item.swift */; };
 		47F3C9FC267A87A400E09CF4 /* RefeicoesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F3C9FB267A87A400E09CF4 /* RefeicoesTableViewController.swift */; };
@@ -28,6 +30,8 @@
 		472A0D602670141A00C79638 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		472A0D622670141A00C79638 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4747CBA126728AA10026102E /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		477B624426810BD50009AB84 /* AdicionarItensViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdicionarItensViewController.swift; sourceTree = "<group>"; };
+		477B624526810BD50009AB84 /* AdicionarItensViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AdicionarItensViewController.xib; sourceTree = "<group>"; };
 		47E3C8AC2677E37F00D75769 /* Refeicao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Refeicao.swift; sourceTree = "<group>"; };
 		47E3C8AE2677E3F900D75769 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		47F3C9FB267A87A400E09CF4 /* RefeicoesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefeicoesTableViewController.swift; sourceTree = "<group>"; };
@@ -90,6 +94,7 @@
 			children = (
 				472A0D582670141700C79638 /* ViewController.swift */,
 				47F3C9FB267A87A400E09CF4 /* RefeicoesTableViewController.swift */,
+				477B624426810BD50009AB84 /* AdicionarItensViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -98,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				472A0D5A2670141700C79638 /* Main.storyboard */,
+				477B624526810BD50009AB84 /* AdicionarItensViewController.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -162,6 +168,7 @@
 			files = (
 				472A0D612670141A00C79638 /* LaunchScreen.storyboard in Resources */,
 				472A0D5E2670141A00C79638 /* Assets.xcassets in Resources */,
+				477B624726810BD50009AB84 /* AdicionarItensViewController.xib in Resources */,
 				472A0D5C2670141700C79638 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -175,6 +182,7 @@
 			files = (
 				47E3C8AF2677E3F900D75769 /* Item.swift in Sources */,
 				472A0D592670141700C79638 /* ViewController.swift in Sources */,
+				477B624626810BD50009AB84 /* AdicionarItensViewController.swift in Sources */,
 				472A0D552670141700C79638 /* AppDelegate.swift in Sources */,
 				47F3C9FC267A87A400E09CF4 /* RefeicoesTableViewController.swift in Sources */,
 				472A0D572670141700C79638 /* SceneDelegate.swift in Sources */,
