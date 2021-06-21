@@ -9,22 +9,27 @@
 import UIKit
 
 class AdicionarItensViewController: UIViewController {
-
+    //MARK: - IBOutlets
+    @IBOutlet weak var nomeTextField: UITextField!
+    @IBOutlet weak var caloriasTextField: UITextField!
+    
+    //MARK: - View life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
+    }
+    
+    //MARK: - IBAction
+    @IBAction func adicionarItem(_ sender: Any){
+        guard let nome = nomeTextField.text, let calorias = caloriasTextField.text else {
+            return
+        }
+        guard let numeroDeCalorias = Double(calorias) else {
+            return
+        }
+        let item = Item(nome: nome,calorias: numeroDeCalorias)
+        //navega  p proxima tela: navigationViewController.push()
+        //volta para a tela anterior: navigationViewController.pop()
         
+        navigationController?.popViewController(animated: true)
     }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
