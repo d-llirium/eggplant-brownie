@@ -30,6 +30,15 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     //troca por optionals ? os ! forced unwrapp
     @IBOutlet var nomeTextField: UITextField?
     @IBOutlet weak var felicidadeTextField: UITextField?
+    
+    //MARK: - View life cycle
+    override func viewDidLoad() {
+        let botaoAdicionaItem = UIBarButtonItem(title: "adicionar", style: .plain, target: self, action: #selector(self.adicionarItem))
+        navigationItem.rightBarButtonItem = botaoAdicionaItem
+    }
+    @objc func adicionarItem(){
+        print("adicionar novo item na lista")
+    }
     //MARK: - UITableViewDataSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return itens.count
@@ -72,12 +81,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         navigationController?.popViewController(animated: true)
     }
 }
-    /*
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-    }
-*/
+    
+    
+
 
 
 
