@@ -8,10 +8,26 @@
 
 import UIKit
 
+protocol AdicionaItensDelegate {
+    func add(_ item: Item)
+}
+
 class AdicionarItensViewController: UIViewController {
     //MARK: - IBOutlets
     @IBOutlet weak var nomeTextField: UITextField!
     @IBOutlet weak var caloriasTextField: UITextField!
+    
+    //MARK: - Atributos
+    var delegate: AdicionaItensDelegate?
+    
+    init(delegate: AdicionaItensDelegate){
+        super.init(nibName: "AdicionarItensViewController", bundle: nil)
+        self.delegate = delegate
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
     
     //MARK: - View life cycle
     override func viewDidLoad() {
@@ -27,9 +43,9 @@ class AdicionarItensViewController: UIViewController {
             return
         }
         let item = Item(nome: nome,calorias: numeroDeCalorias)
+        delegate?.add(item)
         //navega  p proxima tela: navigationViewController.push()
         //volta para a tela anterior: navigationViewController.pop()
-        
         navigationController?.popViewController(animated: true)
     }
 }

@@ -15,7 +15,7 @@ protocol AdicionaRefeicaoDelegate {
 // classe ViewController controla a interface do usuário
     // implementa o protocolo  UITableView > UITableViewDataSource - métodos q armazena os dados da TableView
     // implementa o protocolo UITableView > UITableViewDelegate - métodos q correspondem as ações do usuário na tabela
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, AdicionaItensDelegate {
     //MARK: - ATRIBUTOS
     var delegate: AdicionaRefeicaoDelegate?
 //    var itens: [String] = ["Molho de tomate","Queijo","Molho apimentado","Manjericão"]
@@ -24,12 +24,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                          Item(nome: "Molho Apimentado", calorias: 40.0),
                          Item(nome: "Manjericão", calorias: 40.0)]
     var itensSelecionados: [Item] = []
+
     //MARK: - IBOutlets
     //@IBOutlet paa associar a variável a um campo
     //só vou saber o valor dessa variáveis no TEMPO de execução, por isso eu coloco um ! para forçar um valor, CUIDADO com o FORCE UNWRAPPING ! , pq pode dar crash
     //troca por optionals ? os ! forced unwrapp
     @IBOutlet var nomeTextField: UITextField?
     @IBOutlet weak var felicidadeTextField: UITextField?
+    @IBOutlet weak var itensTableView: UITableView!
     
     //MARK: - View life cycle
     override func viewDidLoad() {
@@ -37,9 +39,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         navigationItem.rightBarButtonItem = botaoAdicionaItem
     }
     @objc func adicionarItens(){
-        let adicionarItensViewController = AdicionarItensViewController()
+        let adicionarItensViewController = AdicionarItensViewController(delegate: self)
         navigationController?.pushViewController(adicionarItensViewController, animated: true)
     }
+    func add(_ item: Item) {
+        itens.append(item)
+        itensTableView.reloadData()
+    }
+    
     //MARK: - UITableViewDataSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return itens.count
