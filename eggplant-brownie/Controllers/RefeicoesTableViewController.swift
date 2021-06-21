@@ -10,6 +10,7 @@ import UIKit
 //vai herdar de UITableViewCOntroller com o protocolo ViewControllerDelegate - q será utilizado para interfacear as duas views
 class RefeicoesTableViewController: UITableViewController, AdicionaRefeicaoDelegate{
     //MARK: - ATRIBUTOS
+    //na classe Refeicao - itens: [Item] = [] já está inicializado
     var refeicoes = [Refeicao(nome:"Macarrão", felicidade: 4),
                      Refeicao(nome:"Pizza", felicidade: 4),
                      Refeicao(nome:"Comida Japonesa", felicidade: 5)]

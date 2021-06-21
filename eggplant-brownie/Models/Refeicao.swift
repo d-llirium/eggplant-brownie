@@ -13,12 +13,13 @@ class Refeicao: NSObject {
      let nome: String
      let felicidade: Int
      //inicializada vazia
-     let itens: Array<Item> = []
+     var itens: Array<Item> = []
      //MARK: - construtor
      //os tipos precisam estar explícitos na hora de colocar os parametros
-     init(nome:String,felicidade:Int){
+    init(nome:String,felicidade:Int, itens: [Item] = []){
          self.nome = nome
          self.felicidade = felicidade
+        self.itens = itens
      }
      //MARK: - métodos
      func totalDeCalorias() -> Double{

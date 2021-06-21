@@ -18,7 +18,12 @@ protocol AdicionaRefeicaoDelegate {
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     //MARK: - ATRIBUTOS
     var delegate: AdicionaRefeicaoDelegate?
-    var itens: [String] = ["Molho de tomate","Queijo","Molho apimentado","Manjericão"]
+//    var itens: [String] = ["Molho de tomate","Queijo","Molho apimentado","Manjericão"]
+    var itens: [Item] = [Item(nome: "Molho de Tomate", calorias: 40.0),
+                         Item(nome: "Queijo", calorias: 40.0),
+                         Item(nome: "Molho Apimentado", calorias: 40.0),
+                         Item(nome: "Manjericão", calorias: 40.0)]
+    var itensSelecionados: [Item] = []
     //MARK: - IBOutlets
     //@IBOutlet paa associar a variável a um campo
     //só vou saber o valor dessa variáveis no TEMPO de execução, por isso eu coloco um ! para forçar um valor, CUIDADO com o FORCE UNWRAPPING ! , pq pode dar crash
@@ -33,7 +38,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let celula = UITableViewCell(style: .default, reuseIdentifier: nil)
         let linhaDaTabela = indexPath.row
         let item = itens[linhaDaTabela]
-        celula.textLabel?.text = item
+        celula.textLabel?.text = item.nome
         return celula
     }
     //MARK: - UITableViewDelegate
@@ -42,6 +47,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         //para poder dar check e uncheck nos itens
         if celula.accessoryType == .none{
             celula.accessoryType = .checkmark
+            let linhaDaTabela = indexPath.row
+            itensSelecionados.append(itens[linhaDaTabela])
         }else{
             celula.accessoryType = .none
         }
@@ -51,7 +58,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBAction func adicionar(_ sender: Any) {
         //tratando os Outlets opcionais com guard let e convertendo a string felicidade em Int
         guard let nomeDaRefeicao = nomeTextField?.text, let felicidadeDaRefeicao = felicidadeTextField?.text, let felicidade = Int(felicidadeDaRefeicao) else{ return }
-        let refeicao = Refeicao(nome: nomeDaRefeicao, felicidade: felicidade)
+        let refeicao = Refeicao(nome: nomeDaRefeicao, felicidade: felicidade, itens: itensSelecionados)
+        refeicao.itens = itensSelecionados
         print("comi \(refeicao.nome) e fiquei com felicidade: \(refeicao.felicidade)")
         //adiciona a refeião inserida na Lista
         delegate?.add(refeicao)
