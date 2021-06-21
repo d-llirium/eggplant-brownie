@@ -41,6 +41,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         celula.textLabel?.text = item.nome
         return celula
     }
+    
     //MARK: - UITableViewDelegate
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let celula = tableView.cellForRow(at: indexPath) else { return }
@@ -51,6 +52,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             itensSelecionados.append(itens[linhaDaTabela])
         }else{
             celula.accessoryType = .none
+            let item = itens[indexPath.row]
+            if let position = itensSelecionados.index(of: item){
+                itensSelecionados.remove(at: position)
+            }
         }
     }
     //MARK: - @IBAction
