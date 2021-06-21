@@ -12,17 +12,28 @@ import UIKit
 protocol AdicionaRefeicaoDelegate {
     func add(_ refeicao: Refeicao)
 }
-//controla a interface do usuário
-class ViewController: UIViewController {
+//controla a interface do usuário, implementamos o protocolo UITableViewDataSource do UITableViewController <exige 2 métodos>
+class ViewController: UIViewController, UITableViewDataSource {
     //MARK: - ATRIBUTOS
     var delegate: AdicionaRefeicaoDelegate?
+    var itens: [String] = ["Molho de tomate","Queijo","Molho apimentado","Manjericão"]
     //MARK: - IBOutlets
     //@IBOutlet paa associar a variável a um campo
     //só vou saber o valor dessa variáveis no TEMPO de execução, por isso eu coloco um ! para forçar um valor, CUIDADO com o FORCE UNWRAPPING ! , pq pode dar crash
     //troca por optionals ? os ! forced unwrapp
     @IBOutlet var nomeTextField: UITextField?
     @IBOutlet weak var felicidadeTextField: UITextField?
-    
+    //MARK: - UITableViewDataSource
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return itens.count
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let celula = UITableViewCell(style: .default, reuseIdentifier: nil)
+        let linhaDaTabela = indexPath.row
+        let item = itens[linhaDaTabela]
+        celula.textLabel?.text = item
+        return celula
+    }
     //MARK: - @IBAction
     //mesmo nome do botão da interface
     @IBAction func adicionar(_ sender: Any) {
