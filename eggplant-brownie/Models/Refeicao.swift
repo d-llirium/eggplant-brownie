@@ -12,10 +12,9 @@ class Refeicao: NSObject {
     //MARK: - atributos
      let nome: String
      let felicidade: Int
-     //inicializada vazia
      var itens: Array<Item> = []
+    
      //MARK: - construtor
-     //os tipos precisam estar explícitos na hora de colocar os parametros
     init(nome:String,felicidade:Int, itens: [Item] = []){
          self.nome = nome
          self.felicidade = felicidade

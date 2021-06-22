@@ -19,12 +19,10 @@ class AdicionarItensViewController: UIViewController {
     
     //MARK: - Atributos
     var delegate: AdicionaItensDelegate?
-    
     init(delegate: AdicionaItensDelegate){
         super.init(nibName: "AdicionarItensViewController", bundle: nil)
         self.delegate = delegate
     }
-    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
@@ -44,8 +42,6 @@ class AdicionarItensViewController: UIViewController {
         }
         let item = Item(nome: nome,calorias: numeroDeCalorias)
         delegate?.add(item)
-        //navega  p proxima tela: navigationViewController.push()
-        //volta para a tela anterior: navigationViewController.pop()
         navigationController?.popViewController(animated: true)
     }
 }
