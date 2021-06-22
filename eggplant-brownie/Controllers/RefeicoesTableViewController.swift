@@ -28,7 +28,10 @@ class RefeicoesTableViewController: UITableViewController, AdicionaRefeicaoDeleg
     }
     @objc func mostrarDetalhes(_ gesture: UILongPressGestureRecognizer){
         if gesture.state == .began{
-            print("longPress Gesture")
+            let celula = gesture.view as! UITableViewCell
+            guard let indexPath = tableView.indexPath(for: celula) else { return }
+            let refeicao = refeicoes[indexPath.row]
+            print("refeicao: \(refeicao.nome)")
         }
     }
         
