@@ -19,6 +19,7 @@
 		47E3C8AF2677E3F900D75769 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E3C8AE2677E3F900D75769 /* Item.swift */; };
 		47F3C9FC267A87A400E09CF4 /* RefeicoesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F3C9FB267A87A400E09CF4 /* RefeicoesTableViewController.swift */; };
 		47FC6AF32683C3E500C14C6C /* Alerta.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47FC6AF22683C3E500C14C6C /* Alerta.swift */; };
+		47FC6AF52685077100C14C6C /* RemoveRefeicaoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47FC6AF42685077100C14C6C /* RemoveRefeicaoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		47E3C8AE2677E3F900D75769 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		47F3C9FB267A87A400E09CF4 /* RefeicoesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefeicoesTableViewController.swift; sourceTree = "<group>"; };
 		47FC6AF22683C3E500C14C6C /* Alerta.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerta.swift; sourceTree = "<group>"; };
+		47FC6AF42685077100C14C6C /* RemoveRefeicaoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveRefeicaoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 				472A0D582670141700C79638 /* ViewController.swift */,
 				47F3C9FB267A87A400E09CF4 /* RefeicoesTableViewController.swift */,
 				477B624426810BD50009AB84 /* AdicionarItensViewController.swift */,
+				47FC6AF42685077100C14C6C /* RemoveRefeicaoViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -186,6 +189,7 @@
 				47FC6AF32683C3E500C14C6C /* Alerta.swift in Sources */,
 				47E3C8AF2677E3F900D75769 /* Item.swift in Sources */,
 				472A0D592670141700C79638 /* ViewController.swift in Sources */,
+				47FC6AF52685077100C14C6C /* RemoveRefeicaoViewController.swift in Sources */,
 				477B624626810BD50009AB84 /* AdicionarItensViewController.swift in Sources */,
 				472A0D552670141700C79638 /* AppDelegate.swift in Sources */,
 				47F3C9FC267A87A400E09CF4 /* RefeicoesTableViewController.swift in Sources */,
