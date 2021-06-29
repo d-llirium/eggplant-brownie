@@ -1,6 +1,6 @@
 # eggplant-brownie
 
-Basic Xcode App features practice.
+Basic Xcode App feature practice.
 
 Exercises from ALURAs course: 
 
