@@ -8,23 +8,32 @@
 
 import UIKit
 
-protocol AdicionaItensDelegate {
+protocol AdicionaItensDelegate
+{
     func add(_ item: Item)
 }
 
-class AdicionarItensViewController: UIViewController {
+class AdicionarItensViewController: UIViewController
+{
     //MARK: - IBOutlets
     @IBOutlet weak var nomeTextField: UITextField!
     @IBOutlet weak var caloriasTextField: UITextField!
     
     //MARK: - Atributos
     var delegate: AdicionaItensDelegate?
-    init(delegate: AdicionaItensDelegate){
-        super.init(nibName: "AdicionarItensViewController", bundle: nil)
+    
+    init(
+        delegate: AdicionaItensDelegate
+    ) {
+        super.init(
+            nibName: "AdicionarItensViewController"
+            , bundle: nil
+        )
         self.delegate = delegate
     }
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
+    required init?( coder: NSCoder )
+    {
+        super.init( coder: coder )
     }
     
     //MARK: - View life cycle
@@ -33,15 +42,16 @@ class AdicionarItensViewController: UIViewController {
     }
     
     //MARK: - IBAction
-    @IBAction func adicionarItem(_ sender: Any){
-        guard let nome = nomeTextField.text, let calorias = caloriasTextField.text else {
-            return
-        }
-        guard let numeroDeCalorias = Double(calorias) else {
-            return
-        }
-        let item = Item(nome: nome,calorias: numeroDeCalorias)
-        delegate?.add(item)
-        navigationController?.popViewController(animated: true)
+    @IBAction func adicionarItem(_ sender: Any)
+    {
+        guard let nome = nomeTextField.text
+                , let calorias = caloriasTextField.text else { return }
+        guard let numeroDeCalorias = Double(calorias) else { return }
+        let item = Item(
+            nome: nome
+            , calorias: numeroDeCalorias
+        )
+        delegate?.add( item )
+        navigationController?.popViewController( animated: true )
     }
 }

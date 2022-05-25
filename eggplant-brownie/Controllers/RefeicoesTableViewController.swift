@@ -8,70 +8,119 @@
 
 import UIKit
 
-class RefeicoesTableViewController: UITableViewController, AdicionaRefeicaoDelegate{
+class RefeicoesTableViewController:
+    UITableViewController
+    , AdicionaRefeicaoDelegate
+{
     //MARK: - ATRIBUTOS
-    var refeicoes = [Refeicao(nome:"Macarrão", felicidade: 4),
-                     Refeicao(nome:"Pizza", felicidade: 4),
-                     Refeicao(nome:"Comida Japonesa", felicidade: 5)]
-    override func viewDidLoad() {
+    var refeicoes =
+    [
+        Refeicao(
+            nome:"Macarrão"
+            , felicidade: 4
+        )
+        , Refeicao(
+            nome:"Pizza"
+            , felicidade: 4
+        )
+        , Refeicao(
+            nome:"Comida Japonesa"
+            , felicidade: 5
+        )
+    ]
+    override func viewDidLoad()
+    {
         guard let caminho = recuperaCaminho() else { return }
-        do{
-            let dados = try Data(contentsOf: caminho)
-            guard let refeicoesSalvas = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(dados) as? Array<Refeicao> else { return }
+        do {
+            let dados = try Data( contentsOf: caminho )
+            guard let refeicoesSalvas = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData( dados ) as? Array< Refeicao > else { return }
             refeicoes = refeicoesSalvas
         } catch {
-            print(error.localizedDescription)
+            print( error.localizedDescription )
         }
     }
     func recuperaCaminho() -> URL? {
-        guard let diretorio = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return nil }
-        let caminho = diretorio.appendingPathComponent("refeicao")
-        print(caminho)
+        guard let diretorio = FileManager.default.urls(
+            for: .documentDirectory
+            , in: .userDomainMask
+        ).first else { return nil }
+        let caminho = diretorio.appendingPathComponent(
+            "refeicao"
+        )
+        print( caminho )
         return caminho
     }
     //MARK: - MÉTODOS
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(
+        _ tableView: UITableView
+        , numberOfRowsInSection section: Int
+    ) -> Int {
         return refeicoes.count
     }
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let celula = UITableViewCell(style: .default, reuseIdentifier: nil)
-        let refeicao = refeicoes[indexPath.row]
+    override func tableView(
+        _ tableView: UITableView
+        , cellForRowAt indexPath: IndexPath
+    ) -> UITableViewCell {
+        let celula = UITableViewCell(
+            style: .default, reuseIdentifier: nil
+        )
+        let refeicao = refeicoes[ indexPath.row ]
         celula.textLabel?.text = refeicao.nome
-        let longPress = UILongPressGestureRecognizer(target: self, action: #selector(mostrarDetalhes(_: )))
-        celula.addGestureRecognizer(longPress)
+        let longPress = UILongPressGestureRecognizer(
+            target: self
+            , action: #selector( mostrarDetalhes(_: )
+            )
+        )
+        celula.addGestureRecognizer( longPress )
         
         return celula
     }
-    @objc func mostrarDetalhes(_ gesture: UILongPressGestureRecognizer){
-        if gesture.state == .began{
+    @objc func mostrarDetalhes(_ gesture: UILongPressGestureRecognizer)
+    {
+        if gesture.state == .began
+        {
             let celula = gesture.view as! UITableViewCell
-            guard let indexPath = tableView.indexPath(for: celula) else { return }
-            let refeicao = refeicoes[indexPath.row]
+            guard let indexPath = tableView.indexPath( for: celula ) else { return }
+            let refeicao = refeicoes[ indexPath.row ]
             
-            RemoveRefeicaoViewController(controller: self).exibe(refeicao, handler: { nomeandoUIAlertAction in
-                self.refeicoes.remove(at: indexPath.row)
+            RemoveRefeicaoViewController(
+                controller: self
+            ).exibe(
+                refeicao
+                , handler: { nomeandoUIAlertAction in
+                self.refeicoes.remove( at: indexPath.row )
                 self.tableView.reloadData()
-            })
+                }
+            )
         }
     }
-    func add(_ refeicao: Refeicao){
-        refeicoes.append(refeicao)
+    func add(_ refeicao: Refeicao)
+    {
+        refeicoes.append( refeicao )
         tableView.reloadData()
         
         guard let caminho = recuperaCaminho() else { return }
         
-        do{
-            let dados = try NSKeyedArchiver.archivedData(withRootObject: refeicoes, requiringSecureCoding: false)
-            try dados.write(to: caminho)
+        do {
+            let dados = try NSKeyedArchiver.archivedData(
+                withRootObject: refeicoes
+                , requiringSecureCoding: false
+            )
+            try dados.write( to: caminho )
         } catch {
-            print(error.localizedDescription)
+            print( error.localizedDescription )
         }
     }
     
     //MARK:- passando info entre CONTROLLERS
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "adicionar" {
-            if let viewController = segue.destination as? ViewController {
+    override func prepare(
+        for segue: UIStoryboardSegue
+        , sender: Any?
+    ) {
+        if segue.identifier == "adicionar"
+        {
+            if let viewController = segue.destination as? ViewController
+            {
                 viewController.delegate = self
             }
         }
