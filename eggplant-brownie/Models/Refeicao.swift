@@ -8,7 +8,9 @@
 
 import UIKit
 
-class Refeicao: NSObject, NSCoding {
+class Refeicao: NSObject
+                , NSCoding
+{
     
     //MARK: - atributos
      let nome: String
@@ -16,7 +18,11 @@ class Refeicao: NSObject, NSCoding {
      var itens: Array< Item > = []
     
      //MARK: - construtor
-    init(nome:String,felicidade:Int, itens: [ Item ] = []){
+    init(
+        nome:String
+        ,felicidade:Int
+        , itens: [ Item ] = []
+    ){
          self.nome = nome
          self.felicidade = felicidade
         self.itens = itens

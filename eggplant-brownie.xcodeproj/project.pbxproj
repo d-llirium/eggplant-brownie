@@ -97,8 +97,8 @@
 		47E3C8B12677E51600D75769 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				472A0D582670141700C79638 /* ViewController.swift */,
 				47F3C9FB267A87A400E09CF4 /* RefeicoesTableViewController.swift */,
+				472A0D582670141700C79638 /* ViewController.swift */,
 				477B624426810BD50009AB84 /* AdicionarItensViewController.swift */,
 				47FC6AF42685077100C14C6C /* RemoveRefeicaoViewController.swift */,
 			);

@@ -10,7 +10,7 @@ import UIKit
 
 protocol AdicionaItensDelegate
 {
-    func add(_ item: Item)
+    func add( _ item: Item )
 }
 
 class AdicionarItensViewController: UIViewController
@@ -37,16 +37,17 @@ class AdicionarItensViewController: UIViewController
     }
     
     //MARK: - View life cycle
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
     }
     
-    //MARK: - IBAction
-    @IBAction func adicionarItem(_ sender: Any)
+    //MARK: - IBAction ADD Item
+    @IBAction func adicionarItem( _ sender: Any )
     {
         guard let nome = nomeTextField.text
                 , let calorias = caloriasTextField.text else { return }
-        guard let numeroDeCalorias = Double(calorias) else { return }
+        guard let numeroDeCalorias = Double( calorias ) else { return }
         let item = Item(
             nome: nome
             , calorias: numeroDeCalorias
