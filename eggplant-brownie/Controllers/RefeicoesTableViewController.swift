@@ -132,7 +132,7 @@ extension RefeicoesTableViewController
     }
 }
 
-    // MARK: - Remove Refeição AlertController
+    // MARK: - Mostra detalhe + Remove Refeição AlertController
 extension RefeicoesTableViewController
 {
     @objc func mostrarDetalhes(
@@ -150,9 +150,9 @@ extension RefeicoesTableViewController
                 controller: self
             ).exibe(
                 refeicao
-                , handler: { nomeandoUIAlertAction in
-                self.refeicoes.remove( at: indexPath.row )
-                self.tableView.reloadData()
+                , handler: { nomeandoUIAlertAction in // o que acontece qnd é pressionado algo no Alert
+                    self.refeicoes.remove( at: indexPath.row )
+                    self.tableView.reloadData()
                 }
             )
         }

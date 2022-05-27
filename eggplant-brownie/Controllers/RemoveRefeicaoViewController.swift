@@ -19,7 +19,7 @@ class RemoveRefeicaoViewController
     
     func exibe(
         _ refeicao: Refeicao
-        , handler: @escaping (
+        , handler: @escaping ( // vai executar o método depois do m´´todo
             UIAlertAction
         )-> Void
     ) {
