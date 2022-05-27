@@ -23,6 +23,7 @@ class Item: NSObject
         self.nome = nome
         self.calorias = calorias
     }
+    
     //MARK: - NSCoding
     func encode( with coder: NSCoder ) {
         coder.encode(

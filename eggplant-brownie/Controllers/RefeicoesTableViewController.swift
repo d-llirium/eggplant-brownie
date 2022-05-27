@@ -35,10 +35,10 @@ class RefeicoesTableViewController:
         guard let caminho = recuperaCaminho() else { return }
         do {
             let dados = try Data( contentsOf: caminho )
-            guard let refeicoesSalvas = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(
+            guard let refeicoesSalvas = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData( // pega os dados para exibir
                 dados
-            ) as? Array< Refeicao > else { return }
-            refeicoes = refeicoesSalvas
+            ) as? Array< Refeicao > else { return } // as refeições
+            refeicoes = refeicoesSalvas // atualiza pelas refeições que está no arquivo
         } catch {
             print( error.localizedDescription )
         }
@@ -84,15 +84,14 @@ extension RefeicoesTableViewController
 {
     func recuperaCaminho() -> URL?
     {
-        guard let diretorio = FileManager.default.urls(
+        guard let diretorio = FileManager.default.urls(  // retorna a pasta toda
             for: .documentDirectory
             , in: .userDomainMask
         ).first else { return nil }
-        let caminho = diretorio.appendingPathComponent(
+        
+        let caminho = diretorio.appendingPathComponent( // cria um arquivo no diretório
             "refeicao"
         )
-        print( caminho )
-        
         return caminho
     }
 }
@@ -108,11 +107,11 @@ extension RefeicoesTableViewController
         guard let caminho = recuperaCaminho() else { return }
         
         do {
-            let dados = try NSKeyedArchiver.archivedData(
+            let dados = try NSKeyedArchiver.archivedData( // tranforma em dados
                 withRootObject: refeicoes
                 , requiringSecureCoding: false
             )
-            try dados.write( to: caminho )
+            try dados.write( to: caminho ) // escreve
         } catch {
             print( error.localizedDescription )
         }

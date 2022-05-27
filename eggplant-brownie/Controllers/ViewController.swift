@@ -58,12 +58,12 @@ class ViewController: UIViewController
         navigationItem.rightBarButtonItem = botaoAdicionaItem
         
         do {
-            guard let diretorio = recuperaDiretorio() else { return }
-            let dados = try Data( contentsOf: diretorio )
-            let itensSalvos = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(
+            guard let diretorio = recuperaDiretorio() else { return } // pega o diretório do itens
+            let dados = try Data( contentsOf: diretorio ) // pega os dados que estão CODIFICADOS no diretório
+            let itensSalvos = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData( // DECODIFICA os itens no diretório
                 dados
-            ) as! Array< Item >
-            itens = itensSalvos
+            ) as! Array< Item > // transforma em uma Array
+            itens = itensSalvos // recupera os itens do arquivo
         } catch {
             print( error.localizedDescription )
         }
@@ -184,10 +184,10 @@ extension ViewController
     
     func add( _ item: Item )
     {
-        itens.append( item )
+        itens.append( item ) // add o item aos itens
         if let tableView = itensTableView
         {
-            tableView.reloadData()
+            tableView.reloadData() // atualiza a tabela de itens
         } else {
             Alerta(
                 controller: self
@@ -196,12 +196,12 @@ extension ViewController
             )
         }
         do {
-            let dados = try NSKeyedArchiver.archivedData(
+            let dados = try NSKeyedArchiver.archivedData( // pega os itens e CODIFICA
                 withRootObject: itens
                 , requiringSecureCoding: false
             )
-            guard let caminho = recuperaDiretorio() else { return }
-            try dados.write( to: caminho )
+            guard let caminho = recuperaDiretorio() else { return } // pega o diretório
+            try dados.write( to: caminho ) // adiciona esses itens atualizados e codificados ao diretório
         } catch {
             print( error.localizedDescription )
         }

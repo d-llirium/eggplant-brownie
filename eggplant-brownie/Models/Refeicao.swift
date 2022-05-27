@@ -44,6 +44,7 @@ class Refeicao: NSObject
             , forKey:"itens"
         )
     }
+    
     required init?( coder: NSCoder )
     {
         nome = coder.decodeObject( forKey: "nome" ) as! String
