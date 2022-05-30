@@ -20,6 +20,7 @@
 		47F3C9FC267A87A400E09CF4 /* RefeicoesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F3C9FB267A87A400E09CF4 /* RefeicoesTableViewController.swift */; };
 		47FC6AF32683C3E500C14C6C /* Alerta.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47FC6AF22683C3E500C14C6C /* Alerta.swift */; };
 		47FC6AF52685077100C14C6C /* RemoveRefeicaoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47FC6AF42685077100C14C6C /* RemoveRefeicaoViewController.swift */; };
+		CE6B79A328418C4A00A53F0E /* RefeicaoDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6B79A228418C4A00A53F0E /* RefeicaoDAO.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		47F3C9FB267A87A400E09CF4 /* RefeicoesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefeicoesTableViewController.swift; sourceTree = "<group>"; };
 		47FC6AF22683C3E500C14C6C /* Alerta.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerta.swift; sourceTree = "<group>"; };
 		47FC6AF42685077100C14C6C /* RemoveRefeicaoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveRefeicaoViewController.swift; sourceTree = "<group>"; };
+		CE6B79A228418C4A00A53F0E /* RefeicaoDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefeicaoDAO.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,7 @@
 				47E3C8AC2677E37F00D75769 /* Refeicao.swift */,
 				47E3C8AE2677E3F900D75769 /* Item.swift */,
 				47FC6AF22683C3E500C14C6C /* Alerta.swift */,
+				CE6B79A228418C4A00A53F0E /* RefeicaoDAO.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -186,6 +189,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE6B79A328418C4A00A53F0E /* RefeicaoDAO.swift in Sources */,
 				47FC6AF32683C3E500C14C6C /* Alerta.swift in Sources */,
 				47E3C8AF2677E3F900D75769 /* Item.swift in Sources */,
 				472A0D592670141700C79638 /* ViewController.swift in Sources */,

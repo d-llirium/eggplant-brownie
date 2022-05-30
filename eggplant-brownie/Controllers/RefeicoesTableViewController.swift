@@ -13,35 +13,12 @@ class RefeicoesTableViewController:
     , AdicionaRefeicaoDelegate
 {
     //MARK: - atributes
-    var refeicoes =
-    [
-        Refeicao(
-            nome:"Macarrão"
-            , felicidade: 4
-        )
-        , Refeicao(
-            nome:"Pizza"
-            , felicidade: 4
-        )
-        , Refeicao(
-            nome:"Comida Japonesa"
-            , felicidade: 5
-        )
-    ]
+    var refeicoes : [ Refeicao ] = []
     
     // MARK: - methods
     override func viewDidLoad()
     {
-        guard let caminho = recuperaCaminho() else { return }
-        do {
-            let dados = try Data( contentsOf: caminho )
-            guard let refeicoesSalvas = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData( // pega os dados para exibir
-                dados
-            ) as? Array< Refeicao > else { return } // as refeições
-            refeicoes = refeicoesSalvas // atualiza pelas refeições que está no arquivo
-        } catch {
-            print( error.localizedDescription )
-        }
+        refeicoes = RefeicaoDAO().recupera()
     }
 }
 
@@ -79,23 +56,6 @@ extension RefeicoesTableViewController
     }
 }
 
-// MARK: - RECUPERA
-extension RefeicoesTableViewController
-{
-    func recuperaCaminho() -> URL?
-    {
-        guard let diretorio = FileManager.default.urls(  // retorna a pasta toda
-            for: .documentDirectory
-            , in: .userDomainMask
-        ).first else { return nil }
-        
-        let caminho = diretorio.appendingPathComponent( // cria um arquivo no diretório
-            "refeicao"
-        )
-        return caminho
-    }
-}
-
 // MARK: - ADD REF Delegate + SEGUE
 extension RefeicoesTableViewController
 {
@@ -104,17 +64,7 @@ extension RefeicoesTableViewController
         refeicoes.append( refeicao )
         tableView.reloadData()
         
-        guard let caminho = recuperaCaminho() else { return }
-        
-        do {
-            let dados = try NSKeyedArchiver.archivedData( // tranforma em dados
-                withRootObject: refeicoes
-                , requiringSecureCoding: false
-            )
-            try dados.write( to: caminho ) // escreve
-        } catch {
-            print( error.localizedDescription )
-        }
+        RefeicaoDAO().save ( refeicoes )
     }
     
     override func prepare(
