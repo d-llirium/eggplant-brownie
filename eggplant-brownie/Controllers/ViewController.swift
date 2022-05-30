@@ -20,25 +20,7 @@ class ViewController: UIViewController
 {
     //MARK: - atributes
     var delegate: AdicionaRefeicaoDelegate?
-    var itens: [ Item ] =
-    [
-        Item(
-            nome: "Molho de Tomate"
-            , calorias: 40.0
-        )
-        , Item(
-            nome: "Queijo"
-            , calorias: 40.0
-        )
-        , Item(
-            nome: "Molho Apimentado"
-            , calorias: 40.0
-        )
-        , Item(
-            nome: "Manjericão"
-            , calorias: 40.0
-        )
-    ]
+    var itens: [ Item ] = [ ]
     var itensSelecionados: [ Item ] = []
 
     //MARK: - IBOutlets
@@ -56,17 +38,7 @@ class ViewController: UIViewController
             , action: #selector( self.adicionarItens )
         )
         navigationItem.rightBarButtonItem = botaoAdicionaItem
-        
-        do {
-            guard let diretorio = recuperaDiretorio() else { return } // pega o diretório do itens
-            let dados = try Data( contentsOf: diretorio ) // pega os dados que estão CODIFICADOS no diretório
-            let itensSalvos = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData( // DECODIFICA os itens no diretório
-                dados
-            ) as! Array< Item > // transforma em uma Array
-            itens = itensSalvos // recupera os itens do arquivo
-        } catch {
-            print( error.localizedDescription )
-        }
+        recuperaItens()
     }
     
     //MARK: - @IBAction
@@ -141,17 +113,10 @@ extension ViewController
 // MARK: -  Recupera
 extension ViewController
 {
-    func recuperaDiretorio() -> URL?
+    func recuperaItens()
     {
-        guard let diretorio = FileManager.default.urls(
-            for: .documentDirectory
-            , in: .userDomainMask
-        ).first else { return nil}
-        let caminho = diretorio.appendingPathComponent( "itens" )
-        
-        return caminho
+        itens = ItemDAO().recupera()
     }
-    
     func recuperaRefeicaoDoFormulario() -> Refeicao?
     {
         guard let nomeDaRefeicao = nomeTextField?.text else { return nil }
@@ -185,6 +150,7 @@ extension ViewController
     func add( _ item: Item )
     {
         itens.append( item ) // add o item aos itens
+        ItemDAO().save( itens )
         if let tableView = itensTableView
         {
             tableView.reloadData() // atualiza a tabela de itens
@@ -194,16 +160,6 @@ extension ViewController
             ).exibe(
                 mensagem: "Não foi possível atualizar a tabela"
             )
-        }
-        do {
-            let dados = try NSKeyedArchiver.archivedData( // pega os itens e CODIFICA
-                withRootObject: itens
-                , requiringSecureCoding: false
-            )
-            guard let caminho = recuperaDiretorio() else { return } // pega o diretório
-            try dados.write( to: caminho ) // adiciona esses itens atualizados e codificados ao diretório
-        } catch {
-            print( error.localizedDescription )
         }
     }
 }
